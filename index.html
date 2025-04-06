@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contatos</title>
+</head>
+<body>
+    <h1>📇 Lista de Contatos</h1>
+
+    <form method="POST" action="/adicionar">
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="text" name="telefone" placeholder="Telefone" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul>
+        {% for contato in contatos %}
+            <li>
+                {{ contato.nome }} - {{ contato.telefone }}
+                <a href="/deletar/{{ contato._id }}">[Remover]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
